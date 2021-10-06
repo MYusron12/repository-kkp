@@ -1,0 +1,81 @@
+kebutuhan fungsional sistem
+- mementukan siapa user / pengguna sistem 
+- membuat daftar apa saja yang bbisa dilakukan setiap user dengan sistem yang akan kita bangun
+
+kebutuhan non fungsional sistem
+- performance : kebutuhan performa sistem bagaimana? identifikasi kebutuhan software, hardware
+- information : data yang dibutuhkan apa saja? dan bagaimana alur datanya
+- economic : nilai ekonomi apasaja yang dapat diperoleh dengan menjalankan sistem ini?
+- eficiency : nilai efisiensi apa yang diperoleh? waktu, kinerja
+- service : layanan, fitur
+
+identifikasi sistem terdiri dari : 
+- identifikasi data (aliran inout )
+- identifikasi informasi (aliran output )
+- identifikasi user sebagai sumber data
+- identifikasi user sebagai tujuan informasi
+
+
+@startuml
+entity user {
+* id : INT
+--
+* nama : VARCHAR
+* email : VARCHAR
+* password : VARCHAR
+* foto : VARCHAR
+login_session_key : VARCHAR
+email_status : VARCHAR
+password_expire_date : VARCHAR
+password_reset_key : VARCHAR
+user_role_id : INT
+}
+
+entity role {
+* role_id : INT
+--
+role_name : VARCHAR
+}
+
+entity role_permissions {
+* permissions_id : INT
+--
+role_id : INT
+page_name : VARCHAR
+action_name : VARCHAR
+}
+
+entity gejala {
+* id_gejala : INT
+--
+nama_gejala : VARCHAR
+aturan_id : INT
+}
+
+entity aturan {
+id_aturan : INT
+--
+gejala_id : INT
+diagnosa_id : INT
+kerusakan_id : INT
+solusi_id : INT
+}
+
+entity diagnosa {
+id_diagnosa : INT
+--
+nama_diagnosa : VARCHAR
+}
+
+entity kerusakan {
+id_kerusakan: INT
+--
+nama_kerusakan : VARCHAR
+}
+
+entity solusi {
+id_solusi : INT
+--
+nama_solusi : VARCHAR
+}
+@enduml
