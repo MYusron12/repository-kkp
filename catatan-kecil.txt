@@ -32,7 +32,7 @@ user_role_id : INT
 }
 
 entity role {
-* role_id : INT
+* id_role : INT
 --
 role_name : VARCHAR
 }
@@ -78,4 +78,13 @@ id_solusi : INT
 --
 nama_solusi : VARCHAR
 }
+user }|--o| role
+user }|--o| role_permissions
+user }|--o| diagnosa
+
+aturan }|--o| gejala
+aturan }|--o| diagnosa
+aturan }|--o| kerusakan
+aturan }|--o| solusi
+
 @enduml
